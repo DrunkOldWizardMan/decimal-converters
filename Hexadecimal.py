@@ -1,6 +1,6 @@
-def hexadecimal():
+import os
+def hexadecimal(a):
     a_list = []
-    a = input("number: ")
     aint = int(a)
     while aint != 0:
         add = aint % 16
@@ -23,4 +23,12 @@ def hexadecimal():
             output += "E"
         elif digit == 15:
             output += "F"
-    print(output)
+    return output
+i = open("input.txt", "r")
+os.remove("output.txt")
+f = open("output.txt", "a")
+for line in i:
+    f.write(hexadecimal(line))
+    f.write(" ")
+f.close()
+i.close()
